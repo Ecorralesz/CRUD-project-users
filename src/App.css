@@ -18,6 +18,7 @@
 
 body {
   width: 100%;
+  background-size: cover;
   background: rgb(174, 47, 197);
   background: linear-gradient(
     90deg,
@@ -160,14 +161,19 @@ li {
 }
 
 
-@media (max-width: 600px) {
+@media (max-width: 500px) and (min-width: 400px) {
+
+  html {
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
   
 
   body {
     width: 100%;
     background: rgb(174, 47, 197);
     background: linear-gradient(
-      180deg,
+      90deg,
       rgba(174, 47, 197, 1) 0%,
       rgba(197, 60, 0, 1) 55%,
       rgba(255, 115, 26, 1) 100%
@@ -205,7 +211,12 @@ li {
 }
 
 
-@media (max-width: 400px) {
+@media (max-width: 400px) and (min-width: 0px) {
+
+  html{
+    height: 100%;
+    background-size: cover;
+  }
 
   form {
     text-align: left;
@@ -223,6 +234,11 @@ li {
     padding: 0;
   }
 
+  .input-container {
+    display: flex;
+    gap: 10px;
+  }
+
   .input-container input {
     font-size: 10px;
   }
@@ -231,6 +247,8 @@ li {
     padding: 5px;
     font-size: 10px;
   }
+
+
 
   .users-list {
     padding: 20px;

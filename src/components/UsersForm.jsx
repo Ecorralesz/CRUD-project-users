@@ -70,7 +70,7 @@ const UsersForm = ({ getUsers, userSelected, deselectUser }) => {
       <div className="input-container">
         <label htmlFor="email"> </label>
         <input
-          type="text"
+          type="email"
           id="email"
           placeholder="Email"
           {...register("email")}
