@@ -84,7 +84,7 @@ const UsersForm = ({ getUsers, userSelected, deselectUser }) => {
         <label htmlFor="password"> </label>
         <input
           placeholder="Password"
-          type="text"
+          type="password"
           id="password"
           {...register("password")}
         />
