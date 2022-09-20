@@ -31,17 +31,16 @@ function App() {
   const [isActive, setIsActive] = useState(false);
 
   const handleClick = () => {
-    // 👇️ toggle
     setIsActive((isActive) => !isActive);
   };
   return (
     <div className="App">
       <div className="app-btn-container">
-      <button type="button" onClick={handleClick}>
-        Add a new User
-      </button>
+        <button type="button" onClick={handleClick}>
+          Add a new User
+        </button>
       </div>
-      
+
       <div
         className="bg-modal"
         style={{
@@ -56,7 +55,12 @@ function App() {
         />
       </div>
 
-      <UsersList users={users} selectUser={selectUser} getUsers={getUsers} />
+      <UsersList
+        handleClick={handleClick}
+        users={users}
+        selectUser={selectUser}
+        getUsers={getUsers}
+      />
     </div>
   );
 }
