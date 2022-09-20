@@ -10,7 +10,6 @@ const UsersList = ({ users, selectUser, getUsers }) => {
 
   return (
     <div>
-      <h1>USER LIST</h1>
       <ul className="users-list">
         {users.map((user) => (
           <li key={user.id} className="card-container">

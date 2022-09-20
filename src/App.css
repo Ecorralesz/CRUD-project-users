@@ -9,37 +9,27 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
-  --main: #ae2fc5;
-  --secondary: #c53c00;
-  --third: #ff731a;
-  --text: #b5a7b6;
+  --main: #00aaa9;
+  --secondary: #28161c;
+  --third: #ed5e93;
+  --text: #b9b9b9;
   --bg: #4f4350;
 }
 
 body {
-  width: 100%;
   background-size: cover;
-  background: rgb(174, 47, 197);
-  background: linear-gradient(
-    90deg,
-    rgba(174, 47, 197, 1) 0%,
-    rgba(197, 60, 0, 1) 55%,
-    rgba(255, 115, 26, 1) 100%
-  );
+  background-image: linear-gradient(to right top, #00aaa9, #00a5d5, #5c95e9, #bb79d2, #ed5e93);
+  height: 100vh;
+
 }
 
 .App {
-  padding: 70px;
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
 
-    width: 100vw;
-    position: relative;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
+  display: grid;
+  grid-template-columns: 1fr 6fr;
+  gap: 50px;
+  align-items: center;
+
 
 }
 
@@ -51,7 +41,7 @@ form {
 
 .name-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .name-container-others {
@@ -72,7 +62,7 @@ form {
   width: 100%;
   padding: 10px;
   font-size: 16px;
-  background: var(--bg);
+  background: var(--secondary);
   color: var(--text);
   border: none;
 }
@@ -80,7 +70,6 @@ form {
 .input-container textarea {
   width: 100%;
 }
-
 
 ::placeholder {
   color: var(--text);
@@ -94,7 +83,7 @@ form {
   text-align: left;
   text-transform: uppercase;
   background: white;
-  padding: 60px;
+  padding: 10px;
   border-radius: 15px;
   width: 100%;
 }
@@ -110,9 +99,6 @@ form {
   padding: 10px;
 }
 
-
-
-
 button {
   padding: 15px;
   background: var(--bg);
@@ -124,7 +110,6 @@ button {
 button:hover {
   background: var(--third);
   color: black;
-
 }
 
 .users-list button {
@@ -133,7 +118,6 @@ button:hover {
 
 .users-list button:hover {
   color: red;
-
 }
 
 .input-container input:hover {
@@ -142,42 +126,40 @@ button:hover {
 }
 
 
+
 .users-list {
   text-decoration: none;
-  background: none;
+  background-image: none;
   padding: 50px;
   border-radius: 15px;
-  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
--webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
--moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-border: 1px solid black;
-margin-top: 50px;
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  border: 1px solid black;
+  margin-top: 50px;
 }
-
 
 li {
   list-style: none;
   margin-bottom: 10px;
 }
 
+@media (max-width: 1000px) and (min-width: 501px) {
+
+
+  .App {
+    grid-template-columns: 1fr;
+  }
+}
 
 @media (max-width: 500px) and (min-width: 400px) {
-
-  html {
+  body {
     background-size: cover;
     background-repeat: no-repeat;
   }
-  
 
-  body {
-    width: 100%;
-    background: rgb(174, 47, 197);
-    background: linear-gradient(
-      90deg,
-      rgba(174, 47, 197, 1) 0%,
-      rgba(197, 60, 0, 1) 55%,
-      rgba(255, 115, 26, 1) 100%
-    );
+  .App {
+    grid-template-columns: 1fr;
   }
 
   form {
@@ -190,7 +172,6 @@ li {
     font-size: 20px;
   }
 
-
   .card-container {
     flex-wrap: wrap;
     padding: 15px;
@@ -198,7 +179,7 @@ li {
     flex-direction: column;
   }
 
-  .name-container  {
+  .name-container {
     gap: 10px;
   }
 
@@ -210,12 +191,14 @@ li {
   }
 }
 
-
 @media (max-width: 400px) and (min-width: 0px) {
-
-  html{
+  html {
     height: 100%;
     background-size: cover;
+  }
+
+  .App {
+    grid-template-columns: 1fr;
   }
 
   form {
@@ -247,8 +230,6 @@ li {
     padding: 5px;
     font-size: 10px;
   }
-
-
 
   .users-list {
     padding: 20px;
