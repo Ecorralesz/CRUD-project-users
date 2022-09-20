@@ -1,14 +1,4 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+:root {
   --main: #00aaa9;
   --secondary: #28161c;
   --third: #ed5e93;
@@ -16,32 +6,57 @@
   --bg: #4f4350;
 }
 
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+
+
+
 body {
+  padding: 0;
+  margin: 0;
   background-size: cover;
   background-image: linear-gradient(to right top, #00aaa9, #00a5d5, #5c95e9, #bb79d2, #ed5e93);
-  height: 100vh;
 
 }
 
 .App {
+  display: flex;
+  flex-direction: column;
 
-  display: grid;
-  grid-template-columns: 1fr 6fr;
-  gap: 50px;
-  align-items: center;
+}
 
+.app-btn-container { 
+  text-align: center;
+  margin-top: 50px;
+}
+
+.App button {
+  width: fit-content;
 
 }
 
 form {
   text-align: left;
   margin: 0 auto;
-  width: 500px;
+  width: 600px;
+  padding: 50px;
+  background: var(--text);
+  border-radius: 15px;
+  position: relative;
 }
 
-.name-container {
+form .name-container {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .name-container-others {
@@ -234,4 +249,26 @@ li {
   .users-list {
     padding: 20px;
   }
+}
+/*Modal*/
+
+.bg-modal { 
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 42px;
+  transform: rotate(45deg);
+  cursor: pointer;
 }

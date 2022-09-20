@@ -3,7 +3,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { useEffect } from "react";
 
-const UsersForm = ({ getUsers, userSelected, deselectUser }) => {
+const UsersForm = ({ getUsers, userSelected, deselectUser, handleClick }) => {
   const { register, handleSubmit, reset } = useForm();
 
   useEffect(() => {
@@ -42,8 +42,14 @@ const UsersForm = ({ getUsers, userSelected, deselectUser }) => {
 
   return (
     <form onSubmit={handleSubmit(submit)}>
+      <div className="close"
+        type="button"
+        onClick={handleClick}
+      >
+        +
+      </div>
       <div className="name-container">
-      <i class="fa-solid fa-user fa-2x"></i>
+      <i className="fa-solid fa-user fa-2x"></i>
         <div className="input-container">
           <label htmlFor="first_name">  </label>
           <input
@@ -66,7 +72,7 @@ const UsersForm = ({ getUsers, userSelected, deselectUser }) => {
       </div>
 
       <div className="name-container-others">
-      <i class="fa-solid fa-envelope fa-2x"></i>
+      <i className="fa-solid fa-envelope fa-2x"></i>
       <div className="input-container">
         <label htmlFor="email"> </label>
         <input
