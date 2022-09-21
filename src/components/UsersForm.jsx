@@ -42,11 +42,11 @@ const UsersForm = ({ getUsers, userSelected, deselectUser, handleClick }) => {
 
   return (
     <form onSubmit={handleSubmit(submit)}>
-      <div className="close"
+      <div className="close heartbeat"
         type="button"
         onClick={handleClick}
       >
-        +
+      <i class="fa-solid fa-rectangle-xmark"></i>
       </div>
       <div className="name-container">
       <i className="fa-solid fa-user fa-2x"></i>
@@ -106,7 +106,7 @@ const UsersForm = ({ getUsers, userSelected, deselectUser, handleClick }) => {
       </div>
 
       <div className="btn-content">
-      <button>Upload</button>
+      <button>{userSelected ? "Save" : "Create"} </button>
       <button type="button" onClick={clear}>
         Clear
       </button>

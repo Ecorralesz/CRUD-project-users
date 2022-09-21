@@ -3,6 +3,7 @@ import React from "react";
 
 const UsersList = ({ users, selectUser, getUsers, handleClick }) => {
   const deleteUser = (id) => {
+    alert("You deleted a user")
     axios
       .delete(`https://users-crud1.herokuapp.com/users/${id}/`)
       .then(() => getUsers());
@@ -13,7 +14,7 @@ const UsersList = ({ users, selectUser, getUsers, handleClick }) => {
       <ul className="users-list">
         {users.map((user) => (
           <li key={user.id} className="card-container">
-            <div>
+            <div className="card-rows">
               <div>
               <i class="fa-solid fa-envelope fa-1x"></i> {user.email}
               </div>

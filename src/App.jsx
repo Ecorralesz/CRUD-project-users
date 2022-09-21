@@ -36,11 +36,11 @@ function App() {
   return (
     <div className="App">
       <div className="app-btn-container">
-        <button type="button" onClick={handleClick}>
+        <button className="wobble-hor-bottom" type="button" onClick={handleClick}>
           Add a new User
         </button>
       </div>
-
+      <div className="blue-ball rotate-scale-up-ver"></div>
       <div
         className="bg-modal"
         style={{
@@ -54,6 +54,7 @@ function App() {
           deselectUser={deselectUser}
         />
       </div>
+      <div className="red-ball shadow-pop-tl "></div>
 
       <UsersList
         handleClick={handleClick}
