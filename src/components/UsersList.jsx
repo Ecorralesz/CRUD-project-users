@@ -1,44 +1,59 @@
 import axios from "axios";
 import React from "react";
+import { Table } from "react-bootstrap";
 
 const UsersList = ({ users, selectUser, getUsers, handleClick }) => {
   const deleteUser = (id) => {
-    alert("You deleted a user")
+    alert("You deleted a user");
     axios
-      .delete(`https://users-crud1.herokuapp.com/users/${id}/`)
+      .delete(`http://users-crud.academlo.tech/users/${id}/`)
       .then(() => getUsers());
   };
 
   return (
-    <div>
-      <ul className="users-list">
+    <div className="container">
+      <Table striped bordered hover variant="dark" className="users-list">
+        <thead>
+          <tr>
+            <th>Email</th>
+            <th>Password</th>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Date of Birth</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
         {users.map((user) => (
-          <li key={user.id} className="card-container">
-            <div className="card-rows">
-              <div>
-              <i class="fa-solid fa-envelope fa-1x"></i> {user.email}
-              </div>
-              <div>
-              <i class="fa-solid fa-lock fa-1x"></i> {user.password}
-              </div>
-              <div>
-              <i class="fa-solid fa-user fa-1x"></i>  {user.first_name} {user.last_name}
-              </div>
-              <div>
-              <i class="fa-solid fa-cake-candles fa-1x"></i> {user.birthday}
-              </div>
-            </div>
-            <div className="card-btn-container">
-              <button onClick={() => handleClick(selectUser(user))}>
-                <i class="fa-solid fa-pencil"></i>
-              </button>
-              <button onClick={() => deleteUser(user.id)}>
-                <i class="fa-solid fa-trash"></i>
-              </button>
-            </div>
-          </li>
+          <tbody key={user.id}>
+            <tr>
+              <td> {user.email}</td>
+              <td>{user.password}</td>
+              <td>{user.first_name}</td>
+              <td>{user.last_name}</td>
+              <td>{user.birthday}</td>
+              <td>
+                {" "}
+                <button 
+                onClick={() => handleClick(selectUser(user))}
+                className="btn-list"
+                >
+                  <i class="fa-solid fa-pencil"></i>
+                </button>
+              </td>
+              <td>
+                {" "}
+                <button 
+                onClick={() => deleteUser(user.id)}
+                className="btn-list"
+                >
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
         ))}
-      </ul>
+      </Table>
     </div>
   );
 };

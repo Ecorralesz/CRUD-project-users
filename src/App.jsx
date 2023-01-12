@@ -3,6 +3,9 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import UsersForm from "./components/UsersForm";
 import UsersList from "./components/UsersList";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Button } from "react-bootstrap";
+
 
 function App() {
   const [users, setUsers] = useState([]);
@@ -10,13 +13,13 @@ function App() {
 
   useEffect(() => {
     axios
-      .get("https://users-crud1.herokuapp.com/users/")
+      .get("http://users-crud.academlo.tech/users/")
       .then((res) => setUsers(res.data));
   }, []);
 
   const getUsers = () => {
     axios
-      .get("https://users-crud1.herokuapp.com/users/")
+      .get("http://users-crud.academlo.tech/users/")
       .then((res) => setUsers(res.data));
   };
 
@@ -36,11 +39,16 @@ function App() {
   return (
     <div className="App">
       <div className="app-btn-container">
-        <button className="wobble-hor-bottom" type="button" onClick={handleClick}>
+        <Button 
+        type="button" 
+        onClick={handleClick} 
+        variant="primary" 
+        size="lg"
+        >
           Add a new User
-        </button>
+        </Button>
       </div>
-      <div className="blue-ball rotate-scale-up-ver"></div>
+
       <div
         className="bg-modal"
         style={{
@@ -54,8 +62,6 @@ function App() {
           deselectUser={deselectUser}
         />
       </div>
-      <div className="red-ball shadow-pop-tl "></div>
-
       <UsersList
         handleClick={handleClick}
         users={users}
