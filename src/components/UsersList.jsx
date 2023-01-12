@@ -6,7 +6,7 @@ const UsersList = ({ users, selectUser, getUsers, handleClick }) => {
   const deleteUser = (id) => {
     alert("You deleted a user");
     axios
-      .delete(`http://users-crud.academlo.tech/users/${id}/`)
+      .delete(`https://users-crud.academlo.tech/users/${id}/`)
       .then(() => getUsers());
   };
 

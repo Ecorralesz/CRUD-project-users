@@ -17,13 +17,13 @@ const UsersForm = ({ getUsers, userSelected, deselectUser, handleClick }) => {
     if (userSelected) {
       axios
         .put(
-          `http://users-crud.academlo.tech/users/${userSelected.id}/`,
+          `https://users-crud.academlo.tech/users/${userSelected.id}/`,
           data
         )
         .then(() => getUsers());
     } else {
       axios
-        .post("http://users-crud.academlo.tech/users/", data)
+        .post("https://users-crud.academlo.tech/users/", data)
         .then(() => getUsers())
         .catch((error) => console.log(error.response));
     }

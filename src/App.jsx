@@ -13,13 +13,13 @@ function App() {
 
   useEffect(() => {
     axios
-      .get("http://users-crud.academlo.tech/users/")
+      .get("https://users-crud.academlo.tech/users/")
       .then((res) => setUsers(res.data));
   }, []);
 
   const getUsers = () => {
     axios
-      .get("http://users-crud.academlo.tech/users/")
+      .get("https://users-crud.academlo.tech/users/")
       .then((res) => setUsers(res.data));
   };
 
