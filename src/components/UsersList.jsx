@@ -16,10 +16,10 @@ const UsersList = ({ users, selectUser, getUsers, handleClick }) => {
         <thead>
           <tr>
             <th>Email</th>
-            <th>Password</th>
+            <th className="hide-phone">Password</th>
             <th>First name</th>
-            <th>Last name</th>
-            <th>Date of Birth</th>
+            <th className="hide-phone">Last name</th>
+            <th className="hide-phone">Date of Birth</th>
             <th>Edit</th>
             <th>Delete</th>
           </tr>
@@ -28,10 +28,10 @@ const UsersList = ({ users, selectUser, getUsers, handleClick }) => {
           <tbody key={user.id}>
             <tr>
               <td> {user.email}</td>
-              <td>{user.password}</td>
+              <td className="hide-phone">{user.password}</td>
               <td>{user.first_name}</td>
-              <td>{user.last_name}</td>
-              <td>{user.birthday}</td>
+              <td className="hide-phone">{user.last_name}</td>
+              <td className="hide-phone">{user.birthday}</td>
               <td>
                 {" "}
                 <button 

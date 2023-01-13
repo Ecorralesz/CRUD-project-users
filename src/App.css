@@ -112,6 +112,16 @@ body {
   background-color: var(--third);
 }
 
+/* .hide-phone {
+  display: block;
+} */
+
+@media (max-width:600px) {
+  .hide-phone {
+    display: none;
+  }
+
+}
 
 
 /*Modal*/
