@@ -16,7 +16,7 @@ const UsersList = ({ users, selectUser, getUsers, handleClick }) => {
         <thead>
           <tr>
             <th>Email</th>
-            <th className="hide-phone">Password</th>
+            <th className="hide-phone hide">Password</th>
             <th>First name</th>
             <th className="hide-phone">Last name</th>
             <th className="hide-phone">Date of Birth</th>
@@ -28,7 +28,7 @@ const UsersList = ({ users, selectUser, getUsers, handleClick }) => {
           <tbody key={user.id}>
             <tr>
               <td> {user.email}</td>
-              <td className="hide-phone">{user.password}</td>
+              <td className="hide-phone hide">{user.password}</td>
               <td>{user.first_name}</td>
               <td className="hide-phone">{user.last_name}</td>
               <td className="hide-phone">{user.birthday}</td>

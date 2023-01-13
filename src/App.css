@@ -112,9 +112,12 @@ body {
   background-color: var(--third);
 }
 
-/* .hide-phone {
-  display: block;
-} */
+
+.hide {
+  display: none;
+}
+
+
 
 @media (max-width:600px) {
   .hide-phone {
