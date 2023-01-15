@@ -50,7 +50,7 @@ const UsersForm = ({ getUsers, userSelected, deselectUser, handleClick }) => {
         type="button"
         onClick={handleClick}
       >
-      <i class="fa-solid fa-rectangle-xmark"></i>
+      <i className="fa-solid fa-rectangle-xmark"></i>
       </div>
 
       <Form.Group className="mb-3">
@@ -80,7 +80,7 @@ const UsersForm = ({ getUsers, userSelected, deselectUser, handleClick }) => {
         />
       </Form.Group>
 
-      <Form.Group className="mb-3" controlId="formBasicEmail">
+      <Form.Group className="mb-3">
         <Form.Label className="form_label">Password</Form.Label>
         <Form.Control 
           type="password"
@@ -89,7 +89,7 @@ const UsersForm = ({ getUsers, userSelected, deselectUser, handleClick }) => {
         />
       </Form.Group>
 
-      <Form.Group className="mb-3" controlId="formBasicEmail">
+      <Form.Group className="mb-3">
         <Form.Label className="form_label">Date of birth</Form.Label>
         <Form.Control 
           type="date"

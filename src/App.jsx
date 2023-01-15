@@ -4,12 +4,13 @@ import "./App.css";
 import UsersForm from "./components/UsersForm";
 import UsersList from "./components/UsersList";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button } from "react-bootstrap";
+import { Button, Form, InputGroup } from "react-bootstrap";
 
 
 function App() {
   const [users, setUsers] = useState([]);
   const [userSelected, setUserSelected] = useState(null);
+  const [nameInput, setNameInput] = useState("");
 
   useEffect(() => {
     axios
@@ -49,6 +50,22 @@ function App() {
         </Button>
       </div>
 
+      <div className="container">
+      <InputGroup 
+      className="mb-3">
+        <InputGroup.Text>
+          Username
+        </InputGroup.Text>
+        <Form.Control
+          aria-label="Default"
+          aria-describedby="inputGroup-sizing-default"
+          type="text"
+          placeholder="Type here..."
+          value={nameInput}
+          onChange={(e) => setNameInput(e.target.value)}
+        />
+        </InputGroup>
+      </div>
       <div
         className="bg-modal"
         style={{
@@ -67,6 +84,7 @@ function App() {
         users={users}
         selectUser={selectUser}
         getUsers={getUsers}
+        nameInput={nameInput}
       />
     </div>
   );

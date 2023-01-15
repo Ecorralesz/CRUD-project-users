@@ -1,8 +1,10 @@
 import axios from "axios";
-import React from "react";
-import { Table } from "react-bootstrap";
+import React, { useEffect, useState } from "react";
+import { Form, InputGroup, Table } from "react-bootstrap";
 
-const UsersList = ({ users, selectUser, getUsers, handleClick }) => {
+const UsersList = ({ users, selectUser, getUsers, handleClick, nameInput }) => {
+
+
   const deleteUser = (id) => {
     alert("You deleted a user");
     axios
@@ -24,35 +26,48 @@ const UsersList = ({ users, selectUser, getUsers, handleClick }) => {
             <th>Delete</th>
           </tr>
         </thead>
-        {users.map((user) => (
-          <tbody key={user.id}>
-            <tr>
-              <td> {user.email}</td>
-              <td className="hide-phone hide">{user.password}</td>
-              <td>{user.first_name}</td>
-              <td className="hide-phone">{user.last_name}</td>
-              <td className="hide-phone">{user.birthday}</td>
-              <td>
-                {" "}
-                <button 
-                onClick={() => handleClick(selectUser(user))}
-                className="btn-list"
-                >
-                  <i class="fa-solid fa-pencil"></i>
-                </button>
-              </td>
-              <td>
-                {" "}
-                <button 
-                onClick={() => deleteUser(user.id)}
-                className="btn-list"
-                >
-                  <i class="fa-solid fa-trash"></i>
-                </button>
-              </td>
-            </tr>
-          </tbody>
-        ))}
+        {users
+          .filter((user) => {
+            console.log(users);
+            if (user.first_name == "") {
+              console.log(user);
+              return user;
+            } else if (
+              user.first_name.toLowerCase().includes(nameInput.toLowerCase())
+            ) {
+              console.log(user.first_name);
+              return user;
+            }
+          })
+          .map((user) => (
+            <tbody key={user.id}>
+              <tr>
+                <td> {user.email}</td>
+                <td className="hide-phone hide">{user.password}</td>
+                <td>{user.first_name}</td>
+                <td className="hide-phone">{user.last_name}</td>
+                <td className="hide-phone">{user.birthday}</td>
+                <td>
+                  {" "}
+                  <button
+                    onClick={() => handleClick(selectUser(user))}
+                    className="btn-list"
+                  >
+                    <i className="fa-solid fa-pencil"></i>
+                  </button>
+                </td>
+                <td>
+                  {" "}
+                  <button
+                    onClick={() => deleteUser(user.id)}
+                    className="btn-list"
+                  >
+                    <i className="fa-solid fa-trash"></i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          ))}
       </Table>
     </div>
   );
